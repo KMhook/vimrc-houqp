@@ -24,6 +24,9 @@ function s:Template(argument)
                 elseif (a:argument == "python")
                         0r ~/.vim/skeletons/template.py
                         set ft=python
+                elseif (a:argument == "javascript")
+                        0r ~/.vim/skeletons/template.js
+                        set ft=javascript
                 endif
 
                 "silent %!~/.vim/do_header %
