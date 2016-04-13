@@ -1,6 +1,6 @@
-"for pathogen
-"call pathogen#runtime_append_all_bundles() 
-"call pathogen#helptags()
+" for pathogen
+" call pathogen#runtime_append_all_bundles() 
+" call pathogen#helptags()
 
 """"""""""""""""""""""""""""""
 " setting for vundle
@@ -23,8 +23,9 @@ Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'houqp/jpythonfold.vim'
+" Bundle 'houqp/jpythonfold.vim'
 Bundle 'houqp/vim-dokuwiki'
+Bundle 'scrooloose/syntastic'
 
 "web dev
 Bundle 'lilydjwg/colorizer'
@@ -32,12 +33,15 @@ Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/emmet-vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'jelera/vim-javascript-syntax'
+Bundle 'mxw/vim-jsx'
+"Bundle 'jelera/vim-javascript-syntax'
 
 "dev tools
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 
+" execute pathogen#infect()
 filetype plugin indent on
 
 
@@ -61,13 +65,12 @@ set listchars=tab:▸\
 set autoindent
 set cindent
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-autocmd FileType c,cpp setlocal noexpandtab
-
+autocmd FileType c,cpp,less setlocal noexpandtab 
 
 set nu
 set cursorline              " 突出显示当前行
 "set cursorcolumn              " 突出显示当前列
-set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set noignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 "set the number of changes that are remembered
 set undolevels=200
@@ -131,15 +134,6 @@ set ignorecase
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
-let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap wm :WMToggle<cr>
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
-"vim will quit if there are only explorer windows
-let g:persistentBehaviour = 0
 
 
 """"""""""""""""""""""""""""""
@@ -308,3 +302,26 @@ function! TitleDet()
     endwhile
     call AddTitle()
 endfunction
+
+
+""""""""""""""""""""""""""""""
+" Toggle NERD_tree
+""""""""""""""""""""""""""""""
+map <leader>n :NERDTreeToggle<CR>
+
+
+
+let JSHintUpdateWriteOnly=1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_jsx_checkers = ['eslint']
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" Syntaxtic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+"
