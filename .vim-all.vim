@@ -311,7 +311,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 
 
-let JSHintUpdateWriteOnly=1
+" let JSHintUpdateWriteOnly=1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jsx_checkers = ['eslint']
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files

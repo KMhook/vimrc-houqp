@@ -527,3 +527,11 @@ function! Fixedgq(lnum, count)
 
     return 0
 endfunction
+
+setlocal makeprg=eslint\ %
+setlocal errorformat=%-P%f,
+                    \%–G/*eslint\ %.%#*/,
+                    \%*[\ ]%n\ %l\\,%c:\ %m,
+                    \%–G\ \ \ \ %.%#,
+                    \%–GNo\ errors\ found.,
+                    \%–Q
