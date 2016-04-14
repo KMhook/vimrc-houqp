@@ -34,6 +34,7 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/emmet-vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
+Bundle 'KabbAmine/gulp-vim'
 "Bundle 'jelera/vim-javascript-syntax'
 
 "dev tools
