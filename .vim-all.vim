@@ -34,19 +34,24 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/emmet-vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
+Bundle 'KabbAmine/gulp-vim'
+Bundle 'ternjs/tern_for_vim'
 "Bundle 'jelera/vim-javascript-syntax'
 
 "dev tools
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'vitalk/vim-simple-todo'
+Bundle 'Valloric/YouCompleteMe'
+
 
 " execute pathogen#infect()
 filetype plugin indent on
 
-
 "Set mapleader
 let mapleader = ","
+let maplocalleader = ",,"
 
 syntax enable
 
@@ -325,3 +330,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 "
+" tern
+let g:tern_map_keys=1
+let g:is_show_argument_hints_enabled=1
+
+"
+" jstplt
+command! -nargs=1 JSTemplate call JSTemplate#createTemplate(<f-args>)
