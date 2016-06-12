@@ -9,9 +9,36 @@ augroup autoinsert
 augroup END
 endif
 
+function s:javascriptToCamel(templateStr)
+  echo a:templateStr
+
+  let l:ret = []
+  let l:wordList = split(a:templateStr, "-")
+  echo l:wordList
+  
+
+  for tmpWord in l:wordList
+    echo toupper(strpart(tmpWord, 0, 1)) . strpart(tmpWord, 1, strlen(tmpWord) - 1)
+    call add(l:ret, toupper(strpart(tmpWord, 0, 1)) . strpart(tmpWord, 1, strlen(tmpWord) - 1))
+  endfor
+
+  return join(l:ret, "")
+endfunction
+
+function s:substitudeJavascriptClassName(classNameTemplate)
+  let l:fileName = expand('%:t')
+  let l:endIdx = stridx(l:fileName, ".")
+  let l:className = strpart(l:fileName, 0, l:endIdx)
+  let l:classNameCamel = s:javascriptToCamel(l:className)
+
+  execute "%s/ClassName/" . l:classNameCamel . "/g" 
+endfunction
+
 function s:javascriptSingleton()
   0r ~/.vim/skeletons/javascriptSingleton.js
   set ft=javascript
+  echo "hello"
+  call s:substitudeJavascriptClassName("ClassName")
 endfunction
 
 function s:javascriptAbstract()
