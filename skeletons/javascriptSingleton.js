@@ -1,4 +1,5 @@
-;(function() {
+;'use strict';
+(function() {
   ClassName = (function() {
     var _mInstance = null;
 

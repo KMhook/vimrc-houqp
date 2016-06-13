@@ -6,6 +6,7 @@ augroup autoinsert
   autocmd BufNewFile *.singleton.js call s:Template("javascriptSingleton")
   autocmd BufNewFile *.abstract.js call s:Template("javascriptAbstract")
   autocmd BufNewFile *.inherit.js call s:Template("javascriptInherit")
+  autocmd BufnewFile [^.]*.js call s:Template("javascript")
 augroup END
 endif
 
@@ -70,6 +71,9 @@ function s:Template(argument)
                 elseif (a:argument == "python")
                         0r ~/.vim/skeletons/template.py
                         set ft=python
+                elseif (a:argument == "javascript")
+                        0r ~/.vim/skeletons/template.js
+                        set ft=javascript
                 elseif (a:argument == "javascriptSingleton")
                         call s:javascriptSingleton()                       
                 elseif (a:argument == "javascriptAbstract") 

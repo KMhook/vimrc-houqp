@@ -1,4 +1,5 @@
-;(function() {
+;'use strict';
+(function() {
   ChildClass = function() {
     ParentClass.call(this);
   };
