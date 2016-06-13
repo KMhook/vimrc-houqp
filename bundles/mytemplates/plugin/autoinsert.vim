@@ -37,18 +37,19 @@ endfunction
 function s:javascriptSingleton()
   0r ~/.vim/skeletons/javascriptSingleton.js
   set ft=javascript
-  echo "hello"
   call s:substitudeJavascriptClassName("ClassName")
 endfunction
 
 function s:javascriptAbstract()
   0r ~/.vim/skeletons/javascriptAbstract.js
   set ft=javascript
+  call s:substitudeJavascriptClassName("ClassName")
 endfunction
 
 function s:javascriptInherit()
   0r ~/.vim/skeletons/javascriptInherit.js
   set ft=javascript
+  call s:substitudeJavascriptClassName("ChildClass")
 endfunction
 
 function s:Template(argument)
