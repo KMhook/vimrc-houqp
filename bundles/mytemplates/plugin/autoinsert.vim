@@ -3,10 +3,10 @@ augroup autoinsert
   au!
   autocmd BufNewFile Makefile call s:Template("make")
   autocmd BufNewFile *.py call s:Template("python")
+  autocmd BufnewFile [^.]*.js call s:Template("javascript")
   autocmd BufNewFile *.singleton.js call s:Template("javascriptSingleton")
   autocmd BufNewFile *.abstract.js call s:Template("javascriptAbstract")
   autocmd BufNewFile *.inherit.js call s:Template("javascriptInherit")
-  autocmd BufnewFile [^.]*.js call s:Template("javascript")
 augroup END
 endif
 

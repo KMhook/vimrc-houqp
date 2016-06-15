@@ -4,7 +4,7 @@
     ParentClass.call(this);
   };
 
-  ChildClass.prototype = Object.create(ParentClass, {
+  ChildClass.prototype = Object.assign(new ParentClass(), {
     constructor: ChildClass
   });
 })();
