@@ -32,7 +32,7 @@ function s:substitudeJavascriptClassName(classNameTemplate)
   let l:className = strpart(l:fileName, 0, l:endIdx)
   let l:classNameCamel = s:javascriptToCamel(l:className)
 
-  execute "%s/ClassName/" . l:classNameCamel . "/g" 
+  execute "%s/" . a:classNameTemplate . "/" . l:classNameCamel . "/g" 
 endfunction
 
 function s:javascriptSingleton()
